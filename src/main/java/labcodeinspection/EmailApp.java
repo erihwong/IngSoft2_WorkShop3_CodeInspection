@@ -2,9 +2,17 @@ package labcodeinspection;
 
 import java.util.Scanner;
 
-@SuppressWarnings("PMD.UseUtilityClass")
-public class EmailApp {
+public final class EmailApp {
+	
+	private EmailApp() {
+        throw new java.lang.UnsupportedOperationException("Utility class and cannot be instantiated");
+    }
 
+	/**
+	*
+	*
+	* @author Johanna
+	*/
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
@@ -23,15 +31,5 @@ public class EmailApp {
 		email.setDeparment(depChoice);
 		email.generateEmail();
 		email.showInfo();
-	}
-	
-	private String randomPassword(int length) {
-		String set = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890#$&@*";
-		char[] password = new char[length];
-		for (int i = 0; i < length; i++) {
-			int rand = (int) (Math.random() * set.length());
-			password[i] = set.charAt(rand);
-		}
-		return new String(password);
 	}
 }
